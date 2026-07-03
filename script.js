@@ -1,192 +1,194 @@
-// Mobile Navigation Toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuToggle.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+// ===== Loader =====
+window.addEventListener('load', () => {
+  document.getElementById('loader').classList.add('hide');
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    });
+// ===== Year stamps =====
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('docketYear').textContent = new Date().getFullYear();
+
+// ===== Theme toggle (persisted) =====
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('nlc-theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const next = current === 'light' ? 'dark' : 'light';
+  if (next === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+  localStorage.setItem('nlc-theme', next);
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Active navigation link based on scroll position
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollY >= (sectionTop - 100)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${current}`) {
-            item.classList.add('active');
-        }
-    });
-});
-
-// Counter animation for stats
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
-
-const animateCounter = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const increment = target / speed;
-    
-    if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(() => animateCounter(counter), 10);
-    } else {
-        counter.innerText = target.toLocaleString();
-    }
-};
-
-// Intersection Observer for counter animation
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counter = entry.target;
-            animateCounter(counter);
-            counterObserver.unobserve(counter);
-        }
-    });
-}, { threshold: 0.5 });
-
-counters.forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-// Testimonial Slider
-const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-let currentSlide = 0;
-
-function showSlide(n) {
-    // Hide all slides
-    testimonialSlides.forEach(slide => {
-        slide.classList.remove('active');
-    });
-    
-    // Remove active class from all dots
-    dots.forEach(dot => {
-        dot.classList.remove('active');
-    });
-    
-    // Calculate new slide index
-    currentSlide = (n + testimonialSlides.length) % testimonialSlides.length;
-    
-    // Show current slide and activate corresponding dot
-    testimonialSlides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+// ===== Scroll progress bar =====
+const scrollProgress = document.getElementById('scrollProgress');
+function updateScrollProgress() {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  scrollProgress.style.width = scrolled + '%';
 }
 
-// Next slide
-nextBtn.addEventListener('click', () => {
-    showSlide(currentSlide + 1);
+// ===== Navbar state + active link + back-to-top =====
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+const sections = document.querySelectorAll('section[id]');
+const navLinkEls = document.querySelectorAll('.nav-link');
+
+function onScroll() {
+  updateScrollProgress();
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  backToTop.classList.toggle('show', window.scrollY > 500);
+
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 140;
+    if (window.scrollY >= top) current = section.id;
+  });
+  navLinkEls.forEach(link => {
+    link.classList.toggle('active', link.dataset.section === current);
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ===== Mobile menu =====
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
 });
+navLinkEls.forEach(link => link.addEventListener('click', () => {
+  menuToggle.classList.remove('active');
+  navLinks.classList.remove('active');
+}));
 
-// Previous slide
-prevBtn.addEventListener('click', () => {
-    showSlide(currentSlide - 1);
-});
-
-// Dot click
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
-    });
-});
-
-// Auto slide change every 5 seconds
-let slideInterval = setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
-
-// Pause auto-slide on hover
-const slider = document.querySelector('.testimonials-slider');
-slider.addEventListener('mouseenter', () => {
-    clearInterval(slideInterval);
-});
-
-slider.addEventListener('mouseleave', () => {
-    slideInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
-});
-
-// Form submission
-const consultationForm = document.getElementById('consultationForm');
-
-consultationForm.addEventListener('submit', (e) => {
+// ===== Smooth scroll for in-page anchors =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const id = this.getAttribute('href');
+    if (id.length < 2) return;
+    const target = document.querySelector(id);
+    if (!target) return;
     e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const service = document.getElementById('service').value;
-    
-    // Simple validation
-    if (!name || !email || !service) {
-        alert('Please fill in all required fields.');
-        return;
-    }
-    
-    // In a real application, you would send this data to a server
-    // For this demo, we'll just show a success message
-    alert(`Thank you ${name}! Your consultation request for ${service} has been received. We will contact you at ${email} within 24 hours.`);
-    
-    // Reset form
-    consultationForm.reset();
+    window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
+  });
 });
 
-// Sticky navbar on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.padding = '10px 0';
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.padding = '15px 0';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+// ===== Scroll reveal (IntersectionObserver) =====
+const revealEls = document.querySelectorAll('[data-reveal]');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ===== Animated docket counters =====
+const counters = document.querySelectorAll('.docket-num');
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1400;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(tick);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.6 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ===== Magnetic buttons =====
+document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.18}px, ${y * 0.4}px)`;
+  });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
 });
 
-// Initialize the first slide
-showSlide(0);
+// ===== Testimonial slider =====
+const slides = document.querySelectorAll('.testimonial-slide');
+const dotsWrap = document.getElementById('sliderDots');
+let current = 0;
+let sliderTimer;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsWrap.appendChild(dot);
+});
+const dots = dotsWrap.querySelectorAll('.dot');
+
+function goToSlide(index) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (index + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  resetSliderTimer();
+}
+function resetSliderTimer() {
+  clearInterval(sliderTimer);
+  sliderTimer = setInterval(() => goToSlide(current + 1), 6000);
+}
+document.getElementById('nextSlide').addEventListener('click', () => goToSlide(current + 1));
+document.getElementById('prevSlide').addEventListener('click', () => goToSlide(current - 1));
+resetSliderTimer();
+
+// ===== FAQ accordion =====
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ===== Contact form (client-side validation + success state) =====
+const form = document.getElementById('consultationForm');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !email || !service || !message) return;
+
+  // NOTE: this is a front-end-only demo state.
+  // To actually deliver messages, POST this data to your backend
+  // (see the "Wiring the contact form to a backend" step in the integration guide).
+  submitBtn.disabled = true;
+  form.classList.add('sent');
+
+  setTimeout(() => {
+    form.reset();
+    form.classList.remove('sent');
+    submitBtn.disabled = false;
+  }, 2600);
+});
