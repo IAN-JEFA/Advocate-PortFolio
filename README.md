@@ -1,126 +1,103 @@
-# Advocate-PortFolio
+# Nairobi Legal Chambers — Website
 
-📋Overview
-Advocate-PortFolio is a modern, responsive website template designed specifically for legal professionals to showcase their expertise, services, and credentials online. Built with clean code and a professional aesthetic, this portfolio helps advocates establish a strong digital presence to attract clients and colleagues.
+## What's in here
 
- Key Features
-Fully Responsive Design - Adapts seamlessly to desktop, tablet, and mobile devices
+```
+site/
+├── index.html            Home
+├── about.html            History, mission/vision/values, timeline, team
+├── practice-areas.html   10 practice areas, hover-expand detail
+├── attorneys.html        Full attorney profiles
+├── case-studies.html     Filterable case studies (challenge/strategy/outcome)
+├── insights.html         Blog with search + category filter
+├── contact.html          Contact info, FAQ, appointment booking form
+├── style.css             Design system (navy/royal-blue glassmorphism, dark/light theme)
+├── script.js             All front-end behavior (shared across every page)
+├── logo.png
+├── partials/
+│   ├── nav.html          Shared nav, injected into every page by script.js
+│   └── footer.html       Shared footer, injected into every page by script.js
+└── backend/              Node/Express/MongoDB API (optional — see below)
+```
 
-Professional Legal Aesthetic - Clean, trustworthy design appropriate for legal practice
+## Running the front end
 
-Fast Performance - Lightweight with minimal dependencies for quick loading
+The front end is plain HTML/CSS/JS — no build step. **It must be served over HTTP, not opened as a `file://` path**, because the shared nav/footer are loaded via `fetch()`.
 
+In VS Code:
+1. Install the **Live Server** extension.
+2. Right-click `index.html` → **Open with Live Server**.
+3. Click through all 7 pages from the nav to confirm everything links up.
 
-Contact Integration - Ready-to-use contact section for client inquiries
+## Running the backend (optional)
 
-Project Structure
-Advocate-PortFolio/
-│
-├── index.html          # Main HTML document
-├── style.css           # All styling rules
-├── script.js           # Interactive functionality
-├── logo.png            # Website logo
-└── README.md           # Project documentation (this file)
+The backend gives you real contact-form email delivery, appointment storage, and admin-managed content (attorneys, case studies, testimonials, blog posts) via a JWT-protected API. The front end works fine without it — the contact form just shows a front-end "sent" confirmation until you wire it up.
 
-Quick Start
-Prerequisites
-A modern web browser (Chrome, Firefox, Safari, Edge)
+```bash
+cd backend
+npm install
+cp .env.example .env
+```
 
-A code editor (VS Code, Sublime Text, or similar) for customization
+Edit `.env`:
+- `MONGO_URI` — a local MongoDB instance or a free MongoDB Atlas cluster
+- `JWT_SECRET` — any long random string
+- `SMTP_USER` / `SMTP_PASS` — for Gmail, use an [App Password](https://myaccount.google.com/apppasswords), not your normal password
+- `CLIENT_ORIGIN` — the URL Live Server runs on (default `http://127.0.0.1:5500`)
 
-Git (optional, for version control)
+Create your first admin login:
+```bash
+node seedAdmin.js
+```
+This prints an email/password — log in once via `POST /api/auth/login`, then change the password directly in the database.
 
-Installation & Local Development
-1. Clone the repository
-git clone https://github.com/IAN-JEFA/Advocate-PortFolio.git
+Start the API:
+```bash
+npm run dev
+```
 
-2. Navigate to the project directory
-cd Advocate-PortFolio
+Runs on `http://localhost:5000`. Check it's alive: `http://localhost:5000/api/health`.
 
-3. Open the project in your preferred way:
+## Connecting the contact form to the backend
 
-Option A: Simple file opening
+In `script.js`, the `consultationForm` submit handler currently just shows a success animation. To actually send the data, replace the `setTimeout` block with:
 
-Double-click the index.html file in your file explorer
+```javascript
+fetch('http://localhost:5000/api/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name, email, phone, service, message })
+})
+  .then(res => res.json())
+  .then(() => {
+    form.classList.add('sent');
+    setTimeout(() => { form.reset(); form.classList.remove('sent'); submitBtn.disabled = false; }, 2600);
+  })
+  .catch(() => { submitBtn.disabled = false; alert('Something went wrong — please try again or call the office.'); });
+```
 
-Option B: Using a local server (recommended for development)
-# Using Python (if installed)
-python -m http.server 8000
-# Then visit http://localhost:8000
+Do the same for the appointment fields, pointing at `/api/appointments` instead.
 
-# Using Node.js with http-server (install globally: npm install -g http-server)
-http-server
+## API reference (once the backend is running)
 
-Option C: Using VS Code with Live Server extension
+| Endpoint | Method | Auth | Purpose |
+|---|---|---|---|
+| `/api/contact` | POST | Public | Submit contact form |
+| `/api/appointments` | POST | Public | Book a consultation |
+| `/api/appointments` | GET | Admin | List all bookings |
+| `/api/appointments/:id` | PATCH | Admin | Update booking status |
+| `/api/attorneys` | GET | Public | List attorneys |
+| `/api/attorneys` | POST/PUT/DELETE | Admin | Manage attorneys |
+| `/api/case-studies` | GET | Public | List case studies |
+| `/api/case-studies` | POST/PUT/DELETE | Admin | Manage case studies |
+| `/api/testimonials` | GET | Public | List testimonials |
+| `/api/testimonials` | POST/PUT/DELETE | Admin | Manage testimonials |
+| `/api/blog` | GET | Public | List blog posts |
+| `/api/blog` | POST/PUT/DELETE | Admin | Manage blog posts |
+| `/api/auth/login` | POST | Public | Get a JWT |
 
-Install the "Live Server" extension in VS Code
+Admin routes need `Authorization: Bearer <token>` from `/api/auth/login`.
 
-Right-click index.html and select "Open with Live Server"
-Customization Guide
-Updating Content
-Personal Information: Edit index.html to update:
+## What's intentionally not included
 
-Name, qualifications, and biography
-
-Practice areas and specialties
-
-Contact details and professional links
-
-Case studies or notable achievements
-
-Styling: Modify style.css to:
-
-Change colors, fonts, and spacing
-
-Adjust layout for different sections
-
-Update responsive breakpoints if needed
-
-Functionality: Edit script.js to:
-
-Modify interactive elements
-
-Add form validation for contact section
-
-Implement additional features as needed
-
-Adding Your Logo
-Replace logo.png with your own logo file (recommended dimensions: 200×100px or similar aspect ratio).
-
-🌐 Deployment
-GitHub Pages (Free & Simple)
-Push your code to a GitHub repository
-
-Go to Repository Settings → Pages
-
-Select branch (usually main) and folder (/root)
-
-Your site will be available at https://[username].github.io/[repository-name]
-
-Custom Domain (Optional)
-If you previously used a CNAME file (as shown in commit history) and want to restore it:
-
-Create a CNAME file in the root directory
-
-Add your domain (e.g., www.yourlawfirm.com)
-
-Configure DNS settings with your domain provider
-
- Project Status
-Current Version: 1.0
-
-Last Updated: January 2026
-
-Recent Changes:
-
-Initial commit with core structure
-
-README documentation added
-
-CNAME configuration cleaned up (if applicable)
-
-License
-This project is available for personal and professional use. For commercial distribution or modifications, please contact the repository owner.
-
-Contributing
-While this is primarily a personal portfolio project, suggestions for improvements are welcome. Please open an issue first to discuss potential changes.
+A rich-text-editor admin **dashboard UI**, image upload handling, and analytics — the API above supports all of that data-wise, but building a polished admin interface on top of it is a separate, sizeable project. If you want that next, it's a natural follow-up once the core site and API are live.
