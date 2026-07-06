@@ -1,3 +1,4 @@
+/* ============ RESET & TOKENS ============ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root{
@@ -352,4 +353,109 @@ button{ font-family: inherit; }
   .footer-brand p{ margin: 0 auto; }
   .social-icons{ justify-content: center; }
   .section{ padding: 90px 0; }
+}
+
+/* ============ MULTI-PAGE ADDITIONS ============ */
+
+/* Page header (non-hero pages) */
+.page-header{ padding: 160px 0 60px; background: var(--navy); position: relative; overflow: hidden; }
+[data-theme="light"] .page-header{ background: linear-gradient(180deg, #eef2fb 0%, var(--offwhite) 100%); }
+.page-header h1{ font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.12; margin-top: 14px; }
+
+.center-cta{ text-align: center; margin-top: 50px; }
+
+/* Contact CTA band (home) */
+.contact-cta{ background: linear-gradient(135deg, var(--royal) 0%, #1d4ed8 100%); padding: 100px 0; }
+.cta-inner{ text-align: center; max-width: 640px; margin: 0 auto; }
+.cta-inner h2{ color: #fff; font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: 14px; }
+.cta-inner p{ color: rgba(255,255,255,.85); margin-bottom: 30px; }
+.cta-inner .btn-primary{ background: #fff; color: var(--royal); }
+.cta-inner .btn-primary:hover{ background: #fff; box-shadow: 0 14px 30px -8px rgba(0,0,0,.3); }
+
+/* About: values */
+.values{ background: var(--bg-elevated); }
+.values-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card{ background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 34px; text-align: center; }
+.value-card i{ font-size: 1.8rem; color: var(--royal-light); margin-bottom: 16px; }
+.value-card h3{ font-size: 1.25rem; margin-bottom: 10px; }
+.value-card p{ font-size: .92rem; color: var(--text-dim); }
+
+/* Team / attorney cards */
+.team-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.team-card{ background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; text-align: center; transition: transform .35s var(--ease); }
+.team-card:hover{ transform: translateY(-6px); }
+.team-avatar{ width: 70px; height: 70px; border-radius: 50%; background: var(--surface-strong); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--royal-light); margin: 0 auto 16px; }
+.team-card h3{ font-size: 1.1rem; margin-bottom: 4px; }
+.team-role{ display: block; font-size: .8rem; color: var(--royal-light); font-weight: 600; margin-bottom: 12px; }
+.team-card p{ font-size: .87rem; color: var(--text-dim); }
+
+.attorney-list{ display: flex; flex-direction: column; gap: 24px; }
+.attorney-card{ display: grid; grid-template-columns: 140px 1fr; gap: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; align-items: start; }
+.attorney-avatar{ width: 100px; height: 100px; border-radius: 50%; background: var(--surface-strong); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--royal-light); }
+.attorney-body h3{ font-size: 1.35rem; margin-bottom: 4px; }
+.attorney-title{ display: block; font-size: .85rem; color: var(--royal-light); font-weight: 600; margin-bottom: 14px; }
+.attorney-body > p{ color: var(--text-dim); margin-bottom: 16px; }
+.attorney-meta{ display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; font-size: .85rem; color: var(--text-dim); }
+.attorney-meta i{ color: var(--royal-light); width: 18px; }
+
+/* Filter bar (case studies / insights) */
+.filter-bar{ display: flex; gap: 10px; flex-wrap: wrap; }
+.filter-btn{ padding: 9px 18px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .3s; }
+.filter-btn:hover{ color: var(--text); }
+.filter-btn.active{ background: var(--royal); border-color: var(--royal); color: #fff; }
+.results-grid-full{ margin-top: 40px; }
+.result-card[hidden]{ display: none; }
+.result-card p{ font-size: .88rem; }
+.result-card p strong{ color: var(--text); }
+
+/* Insights toolbar */
+.insights-toolbar{ display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 44px; }
+.search-field{ position: relative; flex: 1; min-width: 220px; max-width: 340px; }
+.search-field i{ position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-faint); font-size: .85rem; }
+.search-field input{ width: 100%; padding: 12px 16px 12px 40px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; }
+.insights-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.insights-grid-preview{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.insight-card{ background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: transform .35s var(--ease); }
+.insight-card:hover{ transform: translateY(-6px); }
+.insight-card.featured{ grid-column: span 2; }
+.insight-category{ display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--royal-light); margin-bottom: 12px; }
+.insight-card h3{ font-size: 1.1rem; margin-bottom: 10px; line-height: 1.3; }
+.insight-card p{ font-size: .9rem; color: var(--text-dim); margin-bottom: 14px; }
+.insight-meta{ font-size: .8rem; color: var(--text-faint); }
+.insight-card[hidden]{ display: none; }
+.no-results{ text-align: center; color: var(--text-faint); padding: 40px 0; }
+
+/* FAQ search */
+.faq-search{ position: relative; max-width: 400px; margin: 0 auto 30px; }
+.faq-search i{ position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-faint); font-size: .85rem; }
+.faq-search input{ width: 100%; padding: 12px 16px 12px 40px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; }
+.faq-item[hidden]{ display: none; }
+
+/* Contact page extras */
+.form-title{ font-size: 1.3rem; margin-bottom: 22px; }
+.form-note{ font-size: .8rem; color: var(--text-faint); margin-top: 14px; text-align: center; }
+.map-embed{ margin-top: 30px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.map-embed iframe{ width: 100%; height: 220px; border: 0; display: block; filter: grayscale(0.2); }
+
+/* Footer newsletter */
+.newsletter-form{ display: flex; margin-top: 18px; max-width: 280px; }
+.newsletter-form input{ flex: 1; padding: 10px 14px; border-radius: 999px 0 0 999px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); color: #fff; font-family: inherit; }
+.newsletter-form button{ padding: 0 16px; border-radius: 0 999px 999px 0; border: none; background: var(--royal); color: #fff; cursor: pointer; }
+.footer-office{ font-size: .88rem; color: #9fb0cc; margin-bottom: 16px; }
+
+/* Responsive additions */
+@media (max-width: 1024px){
+  .values-grid{ grid-template-columns: 1fr; }
+  .team-grid{ grid-template-columns: repeat(2, 1fr); }
+  .insights-grid, .insights-grid-preview{ grid-template-columns: repeat(2, 1fr); }
+  .insight-card.featured{ grid-column: span 2; }
+  .attorney-card{ grid-template-columns: 1fr; text-align: center; }
+  .attorney-avatar{ margin: 0 auto; }
+  .attorney-meta{ align-items: center; }
+}
+@media (max-width: 768px){
+  .team-grid, .insights-grid, .insights-grid-preview{ grid-template-columns: 1fr; }
+  .insight-card.featured{ grid-column: span 1; }
+  .insights-toolbar{ flex-direction: column; align-items: stretch; }
+  .search-field{ max-width: none; }
 }
