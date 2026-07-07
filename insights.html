@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights | Nairobi Legal Chambers</title>
+<meta name="description" content="Legal insights and articles from Nairobi Legal Chambers on corporate, real estate, family, and constitutional law in Kenya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
+</head>
+<body data-page="insights">
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="loader" id="loader"><div class="loader-mark"><img src="logo.png" alt=""></div></div>
+<div id="nav-placeholder"></div>
+
+<header class="page-header">
+  <div class="container" data-reveal>
+    <span class="eyebrow">Insights</span>
+    <h1>Notes from<br>the chambers.</h1>
+  </div>
+</header>
+
+<section class="section insights">
+  <div class="container">
+    <div class="insights-toolbar" data-reveal>
+      <div class="search-field">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="insightSearch" placeholder="Search articles...">
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+        <button class="filter-btn" data-filter="family">Family</button>
+        <button class="filter-btn" data-filter="constitutional">Constitutional</button>
+      </div>
+    </div>
+
+    <div class="insights-grid" id="insightsGrid">
+      <article class="insight-card featured" data-category="corporate" data-reveal>
+        <span class="insight-category">Corporate Law</span>
+        <h3>What the new Companies Act amendments mean for SMEs</h3>
+        <p>A breakdown of the recent regulatory changes and what small business owners need to do to stay compliant this year.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 6 min read &nbsp;·&nbsp; Featured</p>
+      </article>
+      <article class="insight-card" data-category="real-estate" data-reveal data-reveal-delay="1">
+        <span class="insight-category">Real Estate</span>
+        <h3>Title verification: five checks before you sign</h3>
+        <p>The due diligence steps that catch most property disputes before they happen.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 4 min read</p>
+      </article>
+      <article class="insight-card" data-category="family" data-reveal data-reveal-delay="2">
+        <span class="insight-category">Family Law</span>
+        <h3>Understanding matrimonial property rights in Kenya</h3>
+        <p>How contribution, not just title, determines division on divorce.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 5 min read</p>
+      </article>
+      <article class="insight-card" data-category="constitutional" data-reveal>
+        <span class="insight-category">Constitutional Law</span>
+        <h3>When can you file a judicial review petition?</h3>
+        <p>The grounds courts actually accept, and how long the process realistically takes.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 7 min read</p>
+      </article>
+      <article class="insight-card" data-category="corporate" data-reveal data-reveal-delay="1">
+        <span class="insight-category">Corporate Law</span>
+        <h3>Founder agreements: the clauses people skip</h3>
+        <p>Vesting, IP assignment, and exit terms that prevent co-founder disputes later.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 5 min read</p>
+      </article>
+      <article class="insight-card" data-category="real-estate" data-reveal data-reveal-delay="2">
+        <span class="insight-category">Real Estate</span>
+        <h3>Commercial lease clauses tenants should negotiate</h3>
+        <p>Escalation caps, exit clauses, and maintenance terms worth pushing back on.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 4 min read</p>
+      </article>
+    </div>
+    <p class="no-results" id="noResults" hidden>No articles match your search.</p>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="script.js"></script>
+</body>
+</html>
