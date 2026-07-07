@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nairobi Legal Chambers | Advocate John Mwangi</title>
+<meta name="description" content="Nairobi Legal Chambers — civil litigation, corporate law, and constitutional advocacy in Kenya, led by Advocate John Mwangi.">
+<meta property="og:title" content="Nairobi Legal Chambers">
+<meta property="og:description" content="Advocacy built on precision. Legal representation across Kenyan courts.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="loader" id="loader"><div class="loader-mark"><img src="logo.png" alt=""></div></div>
+
+<!-- ============ NAV ============ -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="#home" class="brand">
+      <img src="logo.png" alt="Nairobi Legal Chambers" class="brand-mark">
+      <span class="brand-text"><strong>NAIROBI</strong>LEGAL<em>CHAMBERS</em></span>
+    </a>
+
+    <div class="nav-center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#practice" class="nav-link" data-section="practice">Practice Areas</a></li>
+        <li class="nav-dropdown" id="workDropdown">
+          <button class="nav-link dropdown-trigger" id="dropdownTrigger" aria-haspopup="true" aria-expanded="false">
+            Work <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-panel">
+            <a href="#attorneys" class="dropdown-item" data-section="attorneys">
+              <i class="fas fa-user-tie"></i>
+              <span><strong>Attorneys</strong><small>Meet the team</small></span>
+            </a>
+            <a href="#cases" class="dropdown-item" data-section="cases">
+              <i class="fas fa-scale-balanced"></i>
+              <span><strong>Case Studies</strong><small>Outcomes on record</small></span>
+            </a>
+            <a href="#insights" class="dropdown-item" data-section="insights">
+              <i class="fas fa-lightbulb"></i>
+              <span><strong>Insights</strong><small>Articles &amp; notes</small></span>
+            </a>
+          </div>
+        </li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        <span class="nav-indicator" id="navIndicator"></span>
+      </ul>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light theme">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="#book" class="btn btn-primary btn-sm nav-cta">Book Consultation</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-ledger" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-container">
+    <div class="hero-content" data-reveal>
+      <div class="hero-eyebrow"><i class="fas fa-scale-balanced"></i> Nairobi Legal Chambers</div>
+      <h1>Legal Excellence<br>Built on <span class="text-accent">Trust.</span></h1>
+      <p class="hero-lede">Exceptional legal representation across Kenyan courts — grounded in evidence, argued with clarity, and measured by outcomes. Led by Advocate John Mwangi, admitted to the Kenyan Bar in 2008.</p>
+      <div class="hero-buttons">
+        <a href="#book" class="btn btn-primary btn-lg magnetic">Schedule Consultation <i class="fas fa-arrow-right"></i></a>
+        <a href="#practice" class="btn btn-ghost btn-lg magnetic">View Practice Areas</a>
+      </div>
+    </div>
+    <div class="hero-panel" data-reveal data-reveal-delay="1">
+      <div class="docket-card">
+        <div class="docket-head"><span class="docket-tag">LIVE RECORD</span><span class="docket-year" id="docketYear"></span></div>
+        <div class="docket-row"><span class="docket-num" data-target="15">0</span><span class="docket-label">Years at the Bar</span></div>
+        <div class="docket-row"><span class="docket-num" data-target="500">0</span><span class="docket-label">Cases Handled</span></div>
+        <div class="docket-row"><span class="docket-num" data-target="95">0</span><span class="docket-suffix">%</span><span class="docket-label">Success Rate</span></div>
+        <div class="docket-row"><span class="docket-num" data-target="50">0</span><span class="docket-suffix">+</span><span class="docket-label">Corporate Clients</span></div>
+        <div class="docket-foot">Kenya School of Law · Law Society of Kenya, Member</div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll to content"><span></span></a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about-history" id="about">
+  <div class="container about-grid">
+    <div class="about-text" data-reveal>
+      <span class="eyebrow">About Us</span>
+      <h2>Fifteen years arguing<br>the record straight.</h2>
+      <p>Nairobi Legal Chambers was founded in 2008 by Advocate John Mwangi following his admission to the Kenyan Bar. What began as a sole practice focused on civil litigation has grown into a chambers of five advocates handling corporate, constitutional, and real estate matters across Kenya.</p>
+      <p>The chambers' philosophy has stayed constant: prepare rigorously, communicate plainly, and let the strength of the argument — not theatrics — carry the case.</p>
+      <div class="quali-list">
+        <div class="quali-item"><i class="fas fa-graduation-cap"></i><span>University of Nairobi, LLB</span></div>
+        <div class="quali-item"><i class="fas fa-scroll"></i><span>Kenya School of Law, Bar Admission</span></div>
+        <div class="quali-item"><i class="fas fa-scale-balanced"></i><span>Member, Law Society of Kenya</span></div>
+      </div>
+    </div>
+    <div class="timeline" data-reveal data-reveal-delay="1">
+      <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-date">2020 — Present</span><h4>Chambers Expansion</h4><p>Grew to a five-advocate practice, adding dedicated corporate and family law associates.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-date">2014 — 2020</span><h4>Corporate Practice Established</h4><p>Built a corporate advisory arm serving SMEs and mid-sized companies across Nairobi.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-date">2008</span><h4>Chambers Founded</h4><p>Advocate John Mwangi opens Nairobi Legal Chambers focused on civil litigation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section values">
+  <div class="container">
+    <div class="section-head light" data-reveal><span class="eyebrow">What Guides Us</span><h2>Mission, vision, values.</h2></div>
+    <div class="values-grid">
+      <div class="value-card" data-reveal><i class="fas fa-bullseye"></i><h3>Mission</h3><p>To provide clear, rigorous, and accessible legal representation that protects our clients' rights and interests at every stage.</p></div>
+      <div class="value-card" data-reveal data-reveal-delay="1"><i class="fas fa-eye"></i><h3>Vision</h3><p>To be Kenya's most trusted independent chambers for civil, corporate, and constitutional advocacy.</p></div>
+      <div class="value-card" data-reveal data-reveal-delay="2"><i class="fas fa-compass"></i><h3>Values</h3><p>Integrity, precision, transparency, and a client-first approach to every engagement, regardless of case size.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRACTICE AREAS ============ -->
+<section class="section practice" id="practice">
+  <div class="container">
+    <div class="section-head" data-reveal><span class="eyebrow">Practice Areas</span><h2>Ten disciplines, one standard of rigor.</h2></div>
+    <div class="practice-grid">
+      <article class="practice-card" data-reveal><div class="practice-num">01</div><i class="fas fa-gavel"></i><h3>Civil Litigation</h3><p class="practice-summary">Contract disputes and personal injury claims before Kenyan courts.</p><p class="practice-detail">From pre-trial negotiation to appeal, we manage the full lifecycle of a civil claim before the High Court.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="1"><div class="practice-num">02</div><i class="fas fa-building-columns"></i><h3>Corporate Law</h3><p class="practice-summary">Formation, compliance, and governance advisory for businesses.</p><p class="practice-detail">We structure companies, draft shareholder agreements, and keep boards compliant with Kenyan corporate law.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="2"><div class="practice-num">03</div><i class="fas fa-house-lock"></i><h3>Real Estate Law</h3><p class="practice-summary">Title verification, leases, and land dispute resolution.</p><p class="practice-detail">Title searches, lease drafting, and representation before the Environment and Land Court.</p></article>
+      <article class="practice-card" data-reveal><div class="practice-num">04</div><i class="fas fa-people-roof"></i><h3>Family Law</h3><p class="practice-summary">Divorce, custody, adoption, and matrimonial property matters.</p><p class="practice-detail">Handled with discretion — mediation-first where possible, courtroom-ready where necessary.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="1"><div class="practice-num">05</div><i class="fas fa-briefcase"></i><h3>Employment Law</h3><p class="practice-summary">Wrongful termination, contracts, and workplace disputes.</p><p class="practice-detail">Advisory for employers and employees on contracts, discipline, and tribunal representation.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="2"><div class="practice-num">06</div><i class="fas fa-user-shield"></i><h3>Criminal Defense</h3><p class="practice-summary">Representation before magistrate and high courts.</p><p class="practice-detail">From bail applications to trial defense, protecting the rights of the accused at every stage.</p></article>
+      <article class="practice-card" data-reveal><div class="practice-num">07</div><i class="fas fa-file-signature"></i><h3>Constitutional Law</h3><p class="practice-summary">Protection of constitutional rights and judicial review.</p><p class="practice-detail">Human rights advocacy and judicial review petitions before Kenya's constitutional courts.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="1"><div class="practice-num">08</div><i class="fas fa-passport"></i><h3>Immigration Law</h3><p class="practice-summary">Work permits, residency, and visa matters.</p><p class="practice-detail">Guidance through Kenyan immigration procedures for individuals and relocating companies.</p></article>
+      <article class="practice-card" data-reveal data-reveal-delay="2"><div class="practice-num">09</div><i class="fas fa-lightbulb"></i><h3>Intellectual Property</h3><p class="practice-summary">Trademark, copyright, and licensing matters.</p><p class="practice-detail">Registration, enforcement, and licensing advisory to protect brands and creative work.</p></article>
+      <article class="practice-card" data-reveal><div class="practice-num">10</div><i class="fas fa-rocket"></i><h3>Startup Legal Services</h3><p class="practice-summary">Incorporation, founder agreements, early-stage compliance.</p><p class="practice-detail">Fixed-fee packages to get new companies incorporated, compliant, and investor-ready.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATTORNEYS ============ -->
+<section class="section attorneys" id="attorneys">
+  <div class="container">
+    <div class="section-head" data-reveal><span class="eyebrow">Our Attorneys</span><h2>Advocates you can put your case in front of.</h2></div>
+    <div class="attorney-list">
+      <article class="attorney-card" data-reveal>
+        <div class="attorney-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="attorney-body">
+          <h3>John Mwangi</h3><span class="attorney-title">Principal Advocate · LLB, LLM</span>
+          <p>Fifteen years in Kenyan courts, specializing in civil litigation, corporate law, and constitutional matters. Admitted to the Kenyan Bar in 2008.</p>
+          <div class="attorney-meta">
+            <span><i class="fas fa-graduation-cap"></i> University of Nairobi, LLB · LLM Commercial Law</span>
+            <span><i class="fas fa-language"></i> English, Kiswahili</span>
+            <span><i class="fas fa-book"></i> Author, "Civil Procedure in Practice" (2019)</span>
+          </div>
+          <a href="#book" class="btn btn-primary btn-sm">Book Consultation</a>
+        </div>
+      </article>
+      <article class="attorney-card" data-reveal data-reveal-delay="1">
+        <div class="attorney-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="attorney-body">
+          <h3>Amina Hassan</h3><span class="attorney-title">Senior Associate · LLB</span>
+          <p>Corporate advisory specialist handling formation, compliance, and commercial contracts for SMEs and growing companies.</p>
+          <div class="attorney-meta">
+            <span><i class="fas fa-graduation-cap"></i> Strathmore University, LLB</span>
+            <span><i class="fas fa-language"></i> English, Kiswahili, Somali</span>
+            <span><i class="fas fa-award"></i> 8 years corporate advisory experience</span>
+          </div>
+          <a href="#book" class="btn btn-primary btn-sm">Book Consultation</a>
+        </div>
+      </article>
+      <article class="attorney-card" data-reveal data-reveal-delay="2">
+        <div class="attorney-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="attorney-body">
+          <h3>Peter Otieno</h3><span class="attorney-title">Associate, Real Estate · LLB</span>
+          <p>Focused on title verification, lease agreements, and land dispute resolution before the Environment and Land Court.</p>
+          <div class="attorney-meta">
+            <span><i class="fas fa-graduation-cap"></i> University of Nairobi, LLB</span>
+            <span><i class="fas fa-language"></i> English, Kiswahili, Dholuo</span>
+            <span><i class="fas fa-award"></i> 6 years in property law</span>
+          </div>
+          <a href="#book" class="btn btn-primary btn-sm">Book Consultation</a>
+        </div>
+      </article>
+      <article class="attorney-card" data-reveal>
+        <div class="attorney-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="attorney-body">
+          <h3>Faith Njeri</h3><span class="attorney-title">Associate, Family Law · LLB</span>
+          <p>Handles divorce, custody, adoption, and matrimonial property matters with a mediation-first approach.</p>
+          <div class="attorney-meta">
+            <span><i class="fas fa-graduation-cap"></i> Kenyatta University, LLB</span>
+            <span><i class="fas fa-language"></i> English, Kiswahili</span>
+            <span><i class="fas fa-award"></i> Accredited mediator, LSK</span>
+          </div>
+          <a href="#book" class="btn btn-primary btn-sm">Book Consultation</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section class="section results" id="cases">
+  <div class="container">
+    <div class="section-head light" data-reveal><span class="eyebrow">Case Studies</span><h2>Outcomes on the record.</h2></div>
+    <div class="filter-bar" data-reveal>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+      <button class="filter-btn" data-filter="constitutional">Constitutional</button>
+      <button class="filter-btn" data-filter="family">Family</button>
+    </div>
+    <div class="results-grid results-grid-full" id="caseGrid">
+      <div class="result-card" data-category="corporate" data-reveal>
+        <span class="result-tag">Corporate</span><h3>Contract Dispute Settlement</h3>
+        <p><strong>Challenge:</strong> A Nairobi tech firm faced breach of contract from a former hardware supplier.</p>
+        <p><strong>Strategy:</strong> Structured negotiation backed by a filed civil suit, using discovery for leverage.</p>
+        <p><strong>Outcome:</strong> Full settlement reached within four months, avoiding a prolonged trial.</p>
+        <div class="result-metric"><span>KES 12M</span> recovered in settlement</div>
+      </div>
+      <div class="result-card" data-category="real-estate" data-reveal data-reveal-delay="1">
+        <span class="result-tag">Real Estate</span><h3>Land Title Dispute</h3>
+        <p><strong>Challenge:</strong> A decade-long ownership dispute over agricultural land in Kisumu.</p>
+        <p><strong>Strategy:</strong> Full chain-of-title investigation, petitioned the Environment and Land Court.</p>
+        <p><strong>Outcome:</strong> Court ruled in the client's favor, confirming full ownership rights.</p>
+        <div class="result-metric"><span>4 months</span> to resolution</div>
+      </div>
+      <div class="result-card" data-category="constitutional" data-reveal data-reveal-delay="2">
+        <span class="result-tag">Constitutional</span><h3>Judicial Review Petition</h3>
+        <p><strong>Challenge:</strong> A county directive threatened to shut down a client's licensed business.</p>
+        <p><strong>Strategy:</strong> Filed an urgent judicial review petition citing procedural violations.</p>
+        <p><strong>Outcome:</strong> High Court issued a unanimous ruling overturning the directive.</p>
+        <div class="result-metric"><span>Unanimous</span> ruling in client's favor</div>
+      </div>
+      <div class="result-card" data-category="family" data-reveal>
+        <span class="result-tag">Family</span><h3>Matrimonial Property Division</h3>
+        <p><strong>Challenge:</strong> A contested divorce involving jointly-owned business assets.</p>
+        <p><strong>Strategy:</strong> Negotiated a mediated settlement backed by forensic accounting.</p>
+        <p><strong>Outcome:</strong> Equitable division agreed without a contested court trial.</p>
+        <div class="result-metric"><span>6 weeks</span> to mediated agreement</div>
+      </div>
+      <div class="result-card" data-category="corporate" data-reveal data-reveal-delay="1">
+        <span class="result-tag">Corporate</span><h3>Startup Incorporation &amp; Investor Round</h3>
+        <p><strong>Challenge:</strong> An early-stage startup needed to incorporate before a tight investor deadline.</p>
+        <p><strong>Strategy:</strong> Fast-tracked incorporation, drafted founder and SAFE agreements in parallel.</p>
+        <p><strong>Outcome:</strong> Closed the round on schedule with clean cap table documentation.</p>
+        <div class="result-metric"><span>3 weeks</span> from kickoff to close</div>
+      </div>
+      <div class="result-card" data-category="real-estate" data-reveal data-reveal-delay="2">
+        <span class="result-tag">Real Estate</span><h3>Commercial Lease Renegotiation</h3>
+        <p><strong>Challenge:</strong> A retail tenant faced an unfavorable renewal with steep rent escalation.</p>
+        <p><strong>Strategy:</strong> Renegotiated terms directly, citing comparable market rates.</p>
+        <p><strong>Outcome:</strong> Secured renewal at a fixed escalation cap over five years.</p>
+        <div class="result-metric"><span>18%</span> reduction in proposed rent</div>
+      </div>
+    </div>
+    <p class="no-results" id="noResultsCases" hidden>No case studies match this filter.</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head" data-reveal><span class="eyebrow">Testimonials</span><h2>What clients say.</h2></div>
+    <div class="testimonial-slider" data-reveal>
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-slide active">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Advocate Mwangi represented our company in a complex contract dispute. His expertise and preparation resulted in a favorable settlement."</p>
+          <div class="client-info"><strong>Sarah Wanjiku</strong><span>CEO, Tech Solutions Kenya</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"During a difficult family dispute, Advocate Mwangi provided compassionate yet professional representation."</p>
+          <div class="client-info"><strong>David Omondi</strong><span>Nairobi</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i></div>
+          <p>"I consulted Nairobi Legal Chambers for a property dispute that had dragged on for years. Within months, my rights were fully protected."</p>
+          <div class="client-info"><strong>Grace Akinyi</strong><span>Property Owner, Kisumu</span></div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevSlide" aria-label="Previous testimonial"><i class="fas fa-arrow-left"></i></button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="nextSlide" aria-label="Next testimonial"><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section class="section insights" id="insights">
+  <div class="container">
+    <div class="section-head" data-reveal><span class="eyebrow">Insights</span><h2>Notes from the chambers.</h2></div>
+    <div class="insights-toolbar" data-reveal>
+      <div class="search-field"><i class="fas fa-magnifying-glass"></i><input type="text" id="insightSearch" placeholder="Search articles..."></div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+        <button class="filter-btn" data-filter="family">Family</button>
+        <button class="filter-btn" data-filter="constitutional">Constitutional</button>
+      </div>
+    </div>
+    <div class="insights-grid" id="insightsGrid">
+      <article class="insight-card featured" data-category="corporate" data-reveal>
+        <span class="insight-category">Corporate Law</span>
+        <h3>What the new Companies Act amendments mean for SMEs</h3>
+        <p>A breakdown of the recent regulatory changes and what small business owners need to do to stay compliant this year.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 6 min read &nbsp;·&nbsp; Featured</p>
+      </article>
+      <article class="insight-card" data-category="real-estate" data-reveal data-reveal-delay="1">
+        <span class="insight-category">Real Estate</span><h3>Title verification: five checks before you sign</h3>
+        <p>The due diligence steps that catch most property disputes before they happen.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 4 min read</p>
+      </article>
+      <article class="insight-card" data-category="family" data-reveal data-reveal-delay="2">
+        <span class="insight-category">Family Law</span><h3>Understanding matrimonial property rights in Kenya</h3>
+        <p>How contribution, not just title, determines division on divorce.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 5 min read</p>
+      </article>
+      <article class="insight-card" data-category="constitutional" data-reveal>
+        <span class="insight-category">Constitutional Law</span><h3>When can you file a judicial review petition?</h3>
+        <p>The grounds courts actually accept, and how long the process realistically takes.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 7 min read</p>
+      </article>
+      <article class="insight-card" data-category="corporate" data-reveal data-reveal-delay="1">
+        <span class="insight-category">Corporate Law</span><h3>Founder agreements: the clauses people skip</h3>
+        <p>Vesting, IP assignment, and exit terms that prevent co-founder disputes later.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 5 min read</p>
+      </article>
+      <article class="insight-card" data-category="real-estate" data-reveal data-reveal-delay="2">
+        <span class="insight-category">Real Estate</span><h3>Commercial lease clauses tenants should negotiate</h3>
+        <p>Escalation caps, exit clauses, and maintenance terms worth pushing back on.</p>
+        <p class="insight-meta"><i class="fas fa-clock"></i> 4 min read</p>
+      </article>
+    </div>
+    <p class="no-results" id="noResultsInsights" hidden>No articles match your search.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT CTA BAND ============ -->
+<section class="section contact-cta">
+  <div class="container cta-inner" data-reveal>
+    <h2>Ready to discuss your case?</h2>
+    <p>Book a confidential consultation and get a clear read on where you stand.</p>
+    <a href="#book" class="btn btn-primary btn-lg magnetic">Schedule Consultation <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-head" data-reveal><span class="eyebrow">Frequently Asked</span><h2>Before you reach out.</h2></div>
+    <div class="faq-search" data-reveal><i class="fas fa-magnifying-glass"></i><input type="text" id="faqSearch" placeholder="Search FAQs..."></div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item"><button class="faq-question">How does an initial consultation work? <i class="fas fa-plus"></i></button><div class="faq-answer"><p>We start with a confidential 30-minute consultation to understand your matter, outline realistic options, and confirm whether the chambers is the right fit before any engagement begins.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What are your fees? <i class="fas fa-plus"></i></button><div class="faq-answer"><p>Fees depend on case type and complexity. Litigation is typically billed hourly or on a fixed brief fee; corporate advisory work is quoted per engagement.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Do you take cases outside Nairobi? <i class="fas fa-plus"></i></button><div class="faq-answer"><p>Yes. We represent clients across Kenya, including matters before courts in Kisumu, Mombasa, and other jurisdictions, with remote consultations available.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How long do civil cases typically take? <i class="fas fa-plus"></i></button><div class="faq-answer"><p>Timelines vary widely — straightforward matters can resolve in a few months, while contested litigation can take longer. We give a realistic estimate at the outset.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Can I book a consultation with a specific attorney? <i class="fas fa-plus"></i></button><div class="faq-answer"><p>Yes — select a preferred attorney in the booking form below, or mention it by phone or email and we'll match you accordingly.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info" data-reveal>
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Let's talk about your case.</h2>
+      <div class="contact-item"><i class="fas fa-location-dot"></i><div><h4>Office</h4><p>Nyayo House, 8th Floor<br>Kenyatta Avenue, Nairobi</p></div></div>
+      <div class="contact-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p>+254 700 123 456<br>+254 20 123 4567</p></div></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>info@nairobilegalchambers.co.ke</p></div></div>
+      <div class="contact-item"><i class="fab fa-whatsapp"></i><div><h4>WhatsApp</h4><p>+254 700 123 456</p></div></div>
+      <div class="contact-item"><i class="fas fa-clock"></i><div><h4>Hours</h4><p>Mon – Fri: 8:00 AM – 5:00 PM<br>Sat: 9:00 AM – 1:00 PM</p></div></div>
+      <div class="map-embed"><iframe title="Office location map" src="https://maps.google.com/maps?q=Kenyatta%20Avenue%20Nairobi&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe></div>
+    </div>
+
+    <form class="contact-form" id="consultationForm" data-reveal data-reveal-delay="1">
+      <h3 class="form-title" id="book">Request a Consultation</h3>
+      <div class="form-row">
+        <div class="form-field"><input type="text" id="name" required placeholder=" "><label for="name">Full Name</label></div>
+        <div class="form-field"><input type="email" id="email" required placeholder=" "><label for="email">Email Address</label></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><input type="tel" id="phone" placeholder=" "><label for="phone">Phone Number</label></div>
+        <div class="form-field">
+          <select id="service" required>
+            <option value="" disabled selected></option>
+            <option value="civil">Civil Litigation</option>
+            <option value="corporate">Corporate Law</option>
+            <option value="real-estate">Real Estate Law</option>
+            <option value="family">Family Law</option>
+            <option value="constitutional">Constitutional Law</option>
+            <option value="mediation">Mediation &amp; Arbitration</option>
+          </select>
+          <label for="service">Service Needed</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <select id="attorney">
+            <option value="" disabled selected></option>
+            <option value="mwangi">John Mwangi</option>
+            <option value="hassan">Amina Hassan</option>
+            <option value="otieno">Peter Otieno</option>
+            <option value="njeri">Faith Njeri</option>
+          </select>
+          <label for="attorney">Preferred Attorney (optional)</label>
+        </div>
+        <div class="form-field"><input type="date" id="preferredDate" placeholder=" "><label for="preferredDate">Preferred Date</label></div>
+      </div>
+      <div class="form-field">
+        <select id="preferredTime">
+          <option value="" disabled selected></option>
+          <option value="morning">Morning (8:00 – 11:00)</option>
+          <option value="midday">Midday (11:00 – 2:00)</option>
+          <option value="afternoon">Afternoon (2:00 – 5:00)</option>
+        </select>
+        <label for="preferredTime">Preferred Time</label>
+      </div>
+      <div class="form-field"><textarea id="message" rows="4" required placeholder=" "></textarea><label for="message">Brief description of your legal issue</label></div>
+      <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+        <span class="btn-label">Request Consultation</span>
+        <i class="fas fa-check btn-check"></i>
+      </button>
+      <p class="form-note">We typically respond within one business day. For urgent matters, call the office directly.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Nairobi Legal Chambers">
+      <p>Advocacy built on precision. Serving clients across Kenya since 2008.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+        <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#about">About</a>
+      <a href="#practice">Practice Areas</a>
+      <a href="#attorneys">Attorneys</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Practice Areas</h4>
+      <a href="#practice">Civil Litigation</a>
+      <a href="#practice">Corporate Law</a>
+      <a href="#practice">Real Estate</a>
+      <a href="#practice">Family Law</a>
+      <a href="#practice">Constitutional Law</a>
+    </div>
+    <div class="footer-col">
+      <h4>Offices</h4>
+      <p class="footer-office">Nyayo House, 8th Floor<br>Kenyatta Avenue, Nairobi</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Nairobi Legal Chambers. All rights reserved. Member of the Law Society of Kenya. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
